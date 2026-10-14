@@ -26,7 +26,6 @@
             overflow-x: hidden;
         }
 
-        /* Top Sticky Navigation */
         nav {
             background: rgba(11, 17, 32, 0.88);
             backdrop-filter: blur(14px);
@@ -66,7 +65,6 @@
             color: #38bdf8;
         }
 
-        /* Main Container */
         .page-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -77,7 +75,6 @@
             align-items: center;
         }
 
-        /* Hero Card */
         .glass-card {
             background: rgba(255, 255, 255, 0.06);
             backdrop-filter: blur(20px);
@@ -177,7 +174,6 @@
             box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
         }
 
-        /* Hub Section */
         .explore-section {
             width: 100%;
         }
@@ -323,12 +319,12 @@
         <section class="glass-card">
             
             <div class="profile-img-wrap">
-                <!-- Multi-extension fallback handles any Windows file naming issue automatically -->
+                <!-- Exact image name verified from your folder -->
                 <img 
-                    src="./image/tech-boy.png" 
+                    src="image/tech-boy.png.png" 
                     alt="Vivek Raj Avatar" 
                     class="profile-img"
-                    onerror="if (!this.tried1) { this.tried1 = true; this.src='./image/tech-boy.png.png'; } else if (!this.tried2) { this.tried2 = true; this.src='./image/tech-boy.png.png.png'; } else { this.src='https://avatars.githubusercontent.com/coded-by-vivek'; }"
+                    onerror="this.src='image/tech-boy.png';"
                 >
             </div>
 
@@ -428,7 +424,7 @@
                                 <circle cx="12" cy="13" r="4"/>
                             </svg>
                         </div>
-                        <div class="portal-title">Photography</div>
+                        <div class="portal-title">Creative Photography</div>
                         <p class="portal-desc">Creative perspectives, camera work, campus frames, and visual captures.</p>
                     </div>
                     <div class="portal-arrow">Open Showcase &rarr;</div>
