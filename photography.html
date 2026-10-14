@@ -1,236 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photography Captures | Vivek Raj</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography Captures | Vivek Raj</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
 
-        body {
-            background-color: #0b1120;
-            color: #f8fafc;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+    body {
+      background-color: #0b1120;
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        /* Navigation */
-        nav {
-            background: rgba(11, 17, 32, 0.95);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 16px 36px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    /* Navigation */
+    nav {
+      background: rgba(11, 17, 32, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+    }
 
-        .logo {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: #ffffff;
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .nav-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            margin-left: 24px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
 
-        .nav-links a:hover, .nav-links a.active {
-            color: #38bdf8;
-        }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
 
-        /* Container */
-        .page-container {
-            max-width: 1300px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 40px 32px;
-            flex: 1;
-        }
+    .nav-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
 
-        /* Header Row */
-        .header-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 30px;
-        }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #38bdf8;
+    }
 
-        .sub-heading {
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            color: #64748b;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      flex: 1;
+      width: 100%;
+    }
 
-        .main-heading {
-            font-size: 2.3rem;
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: -0.5px;
-        }
+    header {
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
 
-        .back-link {
-            color: #38bdf8;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: opacity 0.2s;
-        }
+    header h1 {
+      font-size: 2.5rem;
+      color: #f8fafc;
+      margin-bottom: 0.5rem;
+    }
 
-        .back-link:hover {
-            opacity: 0.8;
-            text-decoration: underline;
-        }
+    header p {
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
 
-        /* Horizontal 3-Card Grid */
-        .photo-grid-horizontal {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-            margin-top: 10px;
-        }
+    /* Gallery Grid */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
 
-        @media (max-width: 950px) {
-            .photo-grid-horizontal {
-                grid-template-columns: 1fr;
-            }
-        }
+    .photo-card {
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
 
-        .photo-card {
-            background: #101927;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 18px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-        }
+    .photo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
 
-        .photo-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(56, 189, 248, 0.4);
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
-        }
+    .photo-wrapper {
+      width: 100%;
+      height: 280px;
+      background: #0f172a;
+      overflow: hidden;
+    }
 
-        .photo-frame {
-            width: 100%;
-            height: 250px;
-            overflow: hidden;
-            background: #070d17;
-        }
+    .photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
 
-        .photo-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.45s ease;
-        }
+    .photo-card:hover .photo-wrapper img {
+      transform: scale(1.04);
+    }
 
-        .photo-card:hover .photo-frame img {
-            transform: scale(1.04);
-        }
+    .photo-info {
+      padding: 1.25rem;
+    }
 
-        .photo-title {
-            padding: 16px 14px;
-            text-align: center;
-            font-size: 1.05rem;
-            font-weight: 500;
-            color: #f1f5f9;
-            background: #101927;
-        }
+    .photo-info h2 {
+      font-size: 1.25rem;
+      color: #f1f5f9;
+      margin-bottom: 0.4rem;
+    }
 
-        footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            text-align: center;
-            padding: 26px 20px;
-            color: #64748b;
-            font-size: 0.88rem;
-            margin-top: 50px;
-        }
-    </style>
+    .photo-info p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1.5rem;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Sticky Navigation Bar -->
-    <nav>
-        <a href="index.html" class="logo">Vivek Raj</a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="academics.html">Academics</a>
-            <a href="skills.html">Skills</a>
-            <a href="projects.html">Projects</a>
-            <a href="gallery.html" class="active">Hobbies &amp; Gallery</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </nav>
-
-    <div class="page-container">
-
-        <!-- Top Header & Back Link -->
-        <div class="header-row">
-            <div>
-                <div class="sub-heading">VISIT MY CAPTURES</div>
-                <h1 class="main-heading">Photography</h1>
-            </div>
-            <a href="gallery.html" class="back-link">&larr; Back to Hobbies</a>
-        </div>
-
-        <!-- 3 Horizontal Pictures Grid Matching Your Exact File Names -->
-        <div class="photo-grid-horizontal">
-
-            <!-- Card 1: Inside the Museum -->
-            <div class="photo-card">
-                <div class="photo-frame">
-                    <img src="image/bapu-tower-inside.jpg.jpeg" alt="Inside the Museum">
-                </div>
-                <div class="photo-title">Inside the Museum</div>
-            </div>
-
-            <!-- Card 2: Bapu Tower (Night) -->
-            <div class="photo-card">
-                <div class="photo-frame">
-                    <img src="image/bapu-tower-night.jpg.jpeg" alt="Bapu Tower (Night)">
-                </div>
-                <div class="photo-title">Bapu Tower (Night)</div>
-            </div>
-
-            <!-- Card 3: Symmetric Atrium -->
-            <div class="photo-card">
-                <div class="photo-frame">
-                    <img src="image/science-globe.jpg.jpeg" alt="Symmetric Atrium">
-                </div>
-                <div class="photo-title">Symmetric Atrium</div>
-            </div>
-
-        </div>
-
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Vivek Raj</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="photography.html" class="active">Photography</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <footer>
-        <p>&copy; 2026 Vivek Raj &bull; Department of CSE, GLA University, Mathura</p>
-    </footer>
+  <!-- Main Content -->
+  <div class="container">
+    <header>
+      <h1>Photography Portfolio</h1>
+      <p>Visual captures and moments through the lens</p>
+    </header>
+
+    <div class="photo-grid">
+      <!-- Card 1 -->
+      <div class="photo-card">
+        <div class="photo-wrapper">
+          <img src="image/bapu-tower-inside.jpg.jpeg" alt="Bapu Tower Inside">
+        </div>
+        <div class="photo-info">
+          <h2>Bapu Tower - Interior</h2>
+          <p>Interior architectural perspectives and geometry.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="photo-card">
+        <div class="photo-wrapper">
+          <img src="image/bapu-tower-night.jpg.jpeg" alt="Bapu Tower Night">
+        </div>
+        <div class="photo-info">
+          <h2>Bapu Tower - Night View</h2>
+          <p>Illuminated night-time architecture and city lights.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="photo-card">
+        <div class="photo-wrapper">
+          <img src="image/science-globe.jpg.jpeg" alt="Science Globe">
+        </div>
+        <div class="photo-info">
+          <h2>Science Globe</h2>
+          <p>Scientific exhibits and vibrant environmental details.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 Vivek Raj. All rights reserved.
+  </footer>
 
 </body>
 </html>
