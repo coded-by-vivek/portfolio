@@ -1,227 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photography Captures | Vivek Raj</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivek Raj | Creative Photography</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
 
-    body {
-      background-color: #0b1120;
-      color: #f8fafc;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+        body {
+            background-color: #0b1120;
+            color: #f8fafc;
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(11, 17, 32, 0.82), rgba(11, 17, 32, 0.92)), 
+                              url('https://www.gla.ac.in/images/admin-block.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
 
-    /* Navigation */
-    nav {
-      background: rgba(11, 17, 32, 0.95);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-    }
+        nav {
+            background: rgba(11, 17, 32, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
 
-    .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #38bdf8;
-      text-decoration: none;
-      letter-spacing: -0.5px;
-    }
+        .logo span {
+            color: #38bdf8;
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 1.25rem;
-      list-style: none;
-      flex-wrap: wrap;
-    }
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
 
-    .nav-links a {
-      color: #94a3b8;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.2s;
-    }
+        .nav-links a:hover, .nav-links a.active {
+            color: #38bdf8;
+        }
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #38bdf8;
-    }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 20px 80px;
+        }
 
-    /* Main Container */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 5rem;
-      flex: 1;
-      width: 100%;
-    }
+        .section-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
 
-    header {
-      margin-bottom: 2.5rem;
-      text-align: center;
-    }
+        .section-header h1 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
 
-    header h1 {
-      font-size: 2.5rem;
-      color: #f8fafc;
-      margin-bottom: 0.5rem;
-    }
+        .section-header h1 span {
+            background: linear-gradient(135deg, #38bdf8, #f43f5e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    header p {
-      color: #94a3b8;
-      font-size: 1.1rem;
-    }
+        .section-header p {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
 
-    /* Gallery Grid */
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-    }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 26px;
+        }
 
-    .photo-card {
-      background: #1e293b;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+        .photo-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 22px;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
 
-    .photo-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    }
+        .photo-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(56, 189, 248, 0.45);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.15);
+        }
 
-    .photo-wrapper {
-      width: 100%;
-      height: 280px;
-      background: #0f172a;
-      overflow: hidden;
-    }
+        .img-container {
+            width: 100%;
+            height: 270px;
+            overflow: hidden;
+            background: #090e17;
+            position: relative;
+        }
 
-    .photo-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease;
-    }
+        .photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+        }
 
-    .photo-card:hover .photo-wrapper img {
-      transform: scale(1.04);
-    }
+        .photo-card:hover .photo-img {
+            transform: scale(1.06);
+        }
 
-    .photo-info {
-      padding: 1.25rem;
-    }
+        .photo-info {
+            padding: 22px;
+        }
 
-    .photo-info h2 {
-      font-size: 1.25rem;
-      color: #f1f5f9;
-      margin-bottom: 0.4rem;
-    }
+        .photo-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #38bdf8;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 6px;
+            display: block;
+        }
 
-    .photo-info p {
-      color: #94a3b8;
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
+        .photo-title {
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
 
-    /* Footer */
-    footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 1.5rem;
-      text-align: center;
-      color: #64748b;
-      font-size: 0.85rem;
-    }
-  </style>
+        .photo-desc {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            padding: 24px 20px;
+            color: #64748b;
+            font-size: 0.88rem;
+            background: rgba(11, 17, 32, 0.85);
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-container">
-      <a href="index.html" class="logo">Vivek Raj</a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="academics.html">Academics</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="photography.html" class="active">Photography</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+    <nav>
+        <a href="index.html" class="logo">Vivek<span>.</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="academics.html">Academics</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="gallery.html">Hobbies &amp; Gallery</a>
+            <a href="photography.html" class="active">Photography</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <div class="section-header">
+            <h1>Creative <span>Photography</span></h1>
+            <p>Visual captures, creative perspectives, and night frames through my lens.</p>
+        </div>
+
+        <div class="gallery-grid">
+            
+            <!-- Photo 1: Bapu Tower Night -->
+            <div class="photo-card">
+                <div class="img-container">
+                    <img 
+                        src="image/bapu-tower-night.jpg" 
+                        alt="Bapu Tower Night View" 
+                        class="photo-img"
+                    >
+                </div>
+                <div class="photo-info">
+                    <span class="photo-tag">Creative Photography &bull; Nightscape</span>
+                    <h2 class="photo-title">Bapu Tower by Night</h2>
+                    <p class="photo-desc">Atmospheric evening illumination showcasing geometric copper panels and vertical balance.</p>
+                </div>
+            </div>
+
+            <!-- Photo 2: Bapu Tower Interior -->
+            <div class="photo-card">
+                <div class="img-container">
+                    <img 
+                        src="image/bapu-tower-inside.jpg" 
+                        alt="Bapu Tower Interior View" 
+                        class="photo-img"
+                    >
+                </div>
+                <div class="photo-info">
+                    <span class="photo-tag">Creative Photography &bull; Perspectives</span>
+                    <h2 class="photo-title">Inside Bapu Tower</h2>
+                    <p class="photo-desc">Radial curves, interior light gradients, and minimalist visual lines captured from within.</p>
+                </div>
+            </div>
+
+            <!-- Photo 3: Science Globe -->
+            <div class="photo-card">
+                <div class="img-container">
+                    <img 
+                        src="image/science-globe.jpg" 
+                        alt="Science Sphere View" 
+                        class="photo-img"
+                    >
+                </div>
+                <div class="photo-info">
+                    <span class="photo-tag">Creative Photography &bull; Reflection</span>
+                    <h2 class="photo-title">The Science Sphere</h2>
+                    <p class="photo-desc">Mirrored exterior contours blending sunlight, sky reflections, and spherical geometry.</p>
+                </div>
+            </div>
+
+        </div>
+
     </div>
-  </nav>
 
-  <!-- Main Content -->
-  <div class="container">
-    <header>
-      <h1>Photography Portfolio</h1>
-      <p>Visual captures and moments through the lens</p>
-    </header>
-
-    <div class="photo-grid">
-      <!-- Card 1 -->
-      <div class="photo-card">
-        <div class="photo-wrapper">
-          <img src="image/bapu-tower-inside.jpg.jpeg" alt="Bapu Tower Inside">
-        </div>
-        <div class="photo-info">
-          <h2>Bapu Tower - Interior</h2>
-          <p>Interior architectural perspectives and geometry.</p>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="photo-card">
-        <div class="photo-wrapper">
-          <img src="image/bapu-tower-night.jpg.jpeg" alt="Bapu Tower Night">
-        </div>
-        <div class="photo-info">
-          <h2>Bapu Tower - Night View</h2>
-          <p>Illuminated night-time architecture and city lights.</p>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="photo-card">
-        <div class="photo-wrapper">
-          <img src="image/science-globe.jpg.jpeg" alt="Science Globe">
-        </div>
-        <div class="photo-info">
-          <h2>Science Globe</h2>
-          <p>Scientific exhibits and vibrant environmental details.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    &copy; 2026 Vivek Raj. All rights reserved.
-  </footer>
+    <footer>
+        <p>&copy; 2026 Vivek Raj &bull; Department of Computer Science &amp; Engineering (CSE), GLA University, Mathura</p>
+    </footer>
 
 </body>
 </html>
