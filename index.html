@@ -66,7 +66,7 @@
             color: #38bdf8;
         }
 
-        /* Main Page Layout */
+        /* Main Container */
         .page-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -77,7 +77,7 @@
             align-items: center;
         }
 
-        /* Glassmorphism Profile Card */
+        /* Hero Card */
         .glass-card {
             background: rgba(255, 255, 255, 0.06);
             backdrop-filter: blur(20px);
@@ -92,7 +92,6 @@
             animation: fadeInDown 0.9s ease-out;
         }
 
-        /* Profile Glow Frame */
         .profile-img-wrap {
             width: 175px;
             height: 175px;
@@ -104,13 +103,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transition: transform 0.4s ease;
             animation: pulseGlow 3s infinite alternate;
         }
 
         .profile-img-wrap:hover {
             transform: scale(1.06);
-            box-shadow: 0 0 50px rgba(34, 197, 94, 0.85);
         }
 
         .profile-img {
@@ -156,7 +154,6 @@
             margin-bottom: 22px;
         }
 
-        /* GitHub Profile Button */
         .github-btn {
             display: inline-flex;
             align-items: center;
@@ -180,7 +177,7 @@
             box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
         }
 
-        /* Explore Section */
+        /* Hub Section */
         .explore-section {
             width: 100%;
         }
@@ -208,7 +205,6 @@
             font-size: 1rem;
         }
 
-        /* 3D Glass Cards Grid */
         .portal-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -230,19 +226,7 @@
             justify-content: space-between;
             position: relative;
             overflow: hidden;
-            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .portal-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #38bdf8, transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
+            transition: all 0.35s ease;
         }
 
         .portal-card:hover {
@@ -250,10 +234,6 @@
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(56, 189, 248, 0.45);
             box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55), 0 0 25px rgba(56, 189, 248, 0.2);
-        }
-
-        .portal-card:hover::before {
-            opacity: 1;
         }
 
         .icon-circle {
@@ -265,11 +245,6 @@
             justify-content: center;
             margin-bottom: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .portal-card:hover .icon-circle {
-            transform: scale(1.1) rotate(4deg);
         }
 
         .icon-blue   { background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.3); }
@@ -306,12 +281,6 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            transition: transform 0.2s;
-        }
-
-        .portal-card:hover .portal-arrow {
-            transform: translateX(6px);
-            color: #7dd3fc;
         }
 
         footer {
@@ -324,29 +293,18 @@
         }
 
         @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-25px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-25px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes pulseGlow {
-            0% {
-                box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
-            }
-            100% {
-                box-shadow: 0 0 45px rgba(56, 189, 248, 0.9), 0 0 25px rgba(34, 197, 94, 0.6);
-            }
+            0% { box-shadow: 0 0 25px rgba(56, 189, 248, 0.6); }
+            100% { box-shadow: 0 0 45px rgba(56, 189, 248, 0.9), 0 0 25px rgba(34, 197, 94, 0.6); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Sticky Navigation -->
     <nav>
         <a href="index.html" class="logo">Vivek<span>.</span></a>
         <div class="nav-links">
@@ -362,15 +320,15 @@
 
     <main class="page-container">
 
-        <!-- Hero Section with Your Active GitHub Link -->
         <section class="glass-card">
             
             <div class="profile-img-wrap">
+                <!-- Multi-extension fallback handles any Windows file naming issue automatically -->
                 <img 
-                    src="image/tech-boy.png.png.png" 
-                    alt="Vivek Raj Tech Boy Avatar" 
+                    src="./image/tech-boy.png" 
+                    alt="Vivek Raj Avatar" 
                     class="profile-img"
-                    onerror="this.onerror=null; this.src='image/tech-boy.png.png'; this.onerror=function(){this.src='image/tech-boy.png'};"
+                    onerror="if (!this.tried1) { this.tried1 = true; this.src='./image/tech-boy.png.png'; } else if (!this.tried2) { this.tried2 = true; this.src='./image/tech-boy.png.png.png'; } else { this.src='https://avatars.githubusercontent.com/coded-by-vivek'; }"
                 >
             </div>
 
@@ -385,7 +343,6 @@
                 First-year engineering student building foundational programming skills in C language and web architecture. Passionate about software logic, competitive chess, and photography.
             </p>
 
-            <!-- Direct GitHub Link -->
             <div>
                 <a href="https://github.com/coded-by-vivek" target="_blank" rel="noopener noreferrer" class="github-btn">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
@@ -397,7 +354,7 @@
 
         </section>
 
-        <!-- Pages Hub Section -->
+        <!-- Pages Hub -->
         <section class="explore-section">
             <div class="section-header">
                 <h2>Explore My <span>Portfolio</span></h2>
@@ -406,7 +363,6 @@
 
             <div class="portal-grid">
                 
-                <!-- Academics -->
                 <a href="academics.html" class="portal-card">
                     <div>
                         <div class="icon-circle icon-blue">
@@ -421,7 +377,6 @@
                     <div class="portal-arrow">Explore Academics &rarr;</div>
                 </a>
 
-                <!-- Skills -->
                 <a href="skills.html" class="portal-card">
                     <div>
                         <div class="icon-circle icon-green">
@@ -431,12 +386,11 @@
                             </svg>
                         </div>
                         <div class="portal-title">Skills &amp; Tools</div>
-                        <p class="portal-desc">C language programming, web structure, problem solving, VS Code setups, and core engineering concepts.</p>
+                        <p class="portal-desc">C language programming, web structure, problem solving, and GCC terminal practice.</p>
                     </div>
                     <div class="portal-arrow">View Skills &rarr;</div>
                 </a>
 
-                <!-- Projects -->
                 <a href="projects.html" class="portal-card">
                     <div>
                         <div class="icon-circle icon-purple">
@@ -452,7 +406,6 @@
                     <div class="portal-arrow">Check Projects &rarr;</div>
                 </a>
 
-                <!-- Hobbies & Chess -->
                 <a href="gallery.html" class="portal-card">
                     <div>
                         <div class="icon-circle icon-amber">
@@ -467,7 +420,6 @@
                     <div class="portal-arrow">See Gallery &rarr;</div>
                 </a>
 
-                <!-- Photography -->
                 <a href="photography.html" class="portal-card">
                     <div>
                         <div class="icon-circle icon-rose">
@@ -482,7 +434,6 @@
                     <div class="portal-arrow">Open Showcase &rarr;</div>
                 </a>
 
-                <!-- Contact -->
                 <a href="contact.html" class="portal-card">
                     <div>
                         <div class="icon-circle icon-cyan">
