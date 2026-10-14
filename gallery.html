@@ -9,29 +9,20 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
             background-color: #0b1120;
             color: #f8fafc;
-            min-height: 100vh;
-            background-image: linear-gradient(rgba(11, 17, 32, 0.85), rgba(11, 17, 32, 0.95)), 
-                              url('https://www.gla.ac.in/images/admin-block.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
+            line-height: 1.6;
         }
 
         /* Top Sticky Navigation */
         nav {
-            background: rgba(11, 17, 32, 0.92);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 16px 40px;
+            background: rgba(11, 17, 32, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px 28px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -41,229 +32,244 @@
         }
 
         .logo {
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            color: #ffffff;
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .logo span {
             color: #38bdf8;
+            text-decoration: none;
         }
 
         .nav-links a {
             color: #94a3b8;
             text-decoration: none;
-            margin-left: 24px;
-            font-size: 0.95rem;
+            margin-left: 20px;
             font-weight: 500;
-            transition: all 0.2s;
+            transition: color 0.2s;
         }
 
         .nav-links a:hover, .nav-links a.active {
             color: #38bdf8;
         }
 
-        /* Container */
-        .container {
-            max-width: 980px;
+        /* Main Container */
+        .page-container {
+            max-width: 1150px;
             margin: 0 auto;
-            padding: 45px 20px 80px;
+            padding: 50px 24px;
         }
 
-        .section-header {
+        .page-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
         }
 
-        .section-header h1 {
-            font-size: 2.4rem;
-            font-weight: 800;
+        .page-header h1 {
+            font-size: 2.6rem;
+            color: #ffffff;
             margin-bottom: 8px;
-            letter-spacing: -0.5px;
         }
 
-        .section-header h1 span {
-            background: linear-gradient(135deg, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .section-header p {
+        .page-header p {
             color: #94a3b8;
-            font-size: 1rem;
+            font-size: 1.05rem;
         }
 
-        /* Banner Stack */
-        .banner-list {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-        }
-
-        .banner-card {
+        /* FULL HORIZONTAL SHOWCASE BANNERS */
+        .horizontal-showcase {
             position: relative;
-            height: 290px;
-            border-radius: 26px;
+            min-height: 410px;
+            border-radius: 28px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.55);
+            text-align: center;
+            padding: 44px 24px;
+            margin-bottom: 40px;
             background-size: cover;
             background-position: center;
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .banner-card:hover {
+        .horizontal-showcase:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
         }
 
-        /* Background thematic images */
-        .card-chess {
-            background-image: linear-gradient(rgba(11, 17, 32, 0.55), rgba(11, 17, 32, 0.75)), 
-                              url('https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=1200&q=80');
+        /* 1. Chess Banner */
+        .banner-chess {
+            background-image: linear-gradient(180deg, rgba(11, 17, 32, 0.52) 0%, rgba(11, 17, 32, 0.88) 100%),
+                              url('https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=1600&auto=format&fit=crop&q=80');
+        }
+        .banner-chess:hover {
+            border-color: #38bdf8;
+            box-shadow: 0 22px 55px rgba(56, 189, 248, 0.25);
         }
 
-        .card-photo {
-            background-image: linear-gradient(rgba(11, 17, 32, 0.55), rgba(11, 17, 32, 0.75)), 
-                              url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80');
+        /* 2. Photography Banner: Dark Moody Camera, Lens & Gear Focus */
+        .banner-photo {
+            background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(11, 17, 32, 0.9) 100%),
+                              url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1600&auto=format&fit=crop&q=80');
+            border-color: rgba(251, 191, 36, 0.25);
+        }
+        .banner-photo:hover {
+            border-color: #f59e0b;
+            box-shadow: 0 22px 55px rgba(245, 158, 11, 0.3);
         }
 
-        .card-football {
-            background-image: linear-gradient(rgba(11, 17, 32, 0.55), rgba(11, 17, 32, 0.75)), 
-                              url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=80');
+        /* 3. Football Banner: Bold Goalpost & Pitch Background */
+        .banner-football {
+            background-image: linear-gradient(180deg, rgba(5, 46, 22, 0.45) 0%, rgba(11, 17, 32, 0.88) 100%),
+                              url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1600&auto=format&fit=crop&q=80');
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+        .banner-football:hover {
+            border-color: #22c55e;
+            box-shadow: 0 22px 55px rgba(34, 197, 94, 0.3);
         }
 
-        .card-tech {
-            background-image: linear-gradient(rgba(11, 17, 32, 0.55), rgba(11, 17, 32, 0.75)), 
-                              url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80');
+        /* 4. Tech Exploration Banner */
+        .banner-tech {
+            background-image: linear-gradient(180deg, rgba(11, 17, 32, 0.55) 0%, rgba(11, 17, 32, 0.9) 100%),
+                              url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&auto=format&fit=crop&q=80');
+        }
+        .banner-tech:hover {
+            border-color: #a855f7;
+            box-shadow: 0 22px 55px rgba(168, 85, 247, 0.25);
         }
 
-        /* Center Glass Overlay Panel */
-        .glass-panel {
-            background: rgba(11, 17, 32, 0.72);
+        /* Inner Glass Cards */
+        .glass-inner-card {
+            background: rgba(15, 23, 42, 0.82);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            border-radius: 20px;
-            padding: 24px 34px;
-            width: 86%;
-            max-width: 650px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 22px;
+            padding: 34px 44px;
+            max-width: 720px;
+            width: 100%;
+        }
+
+        /* Creative Camera Glass Styling */
+        .photo-inner-card {
+            background: rgba(17, 24, 39, 0.85);
+            border: 1.5px solid rgba(251, 191, 36, 0.3);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65);
+        }
+
+        /* Football Specific Inner Glass Style: Green & White Aesthetic */
+        .football-inner-card {
+            background: rgba(6, 36, 21, 0.82);
+            border: 1.5px solid rgba(74, 222, 128, 0.35);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
         }
 
-        .panel-badge {
-            font-size: 0.72rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            padding: 4px 14px;
-            border-radius: 30px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            color: #94a3b8;
-        }
-
-        .panel-title {
-            font-size: 1.45rem;
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: -0.3px;
-        }
-
-        .panel-desc {
-            color: #cbd5e1;
-            font-size: 0.88rem;
-            line-height: 1.45;
-            max-width: 540px;
-        }
-
-        /* Call To Action Buttons */
-        .panel-btn {
+        .badge {
             display: inline-block;
-            margin-top: 4px;
-            padding: 8px 24px;
-            border-radius: 12px;
-            font-size: 0.86rem;
+            font-weight: 700;
+            font-size: 0.82rem;
+            padding: 5px 16px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .badge-chess { background: #22c55e; color: #052e16; }
+        .badge-photo { 
+            background: #fef3c7; 
+            color: #78350f; 
+            border: 1px solid #f59e0b;
+            box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+        }
+        .badge-football { 
+            background: #ffffff; 
+            color: #14532d; 
+            border: 1px solid #22c55e;
+            box-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
+        }
+        .badge-tech { background: #a855f7; color: #3b0764; }
+
+        .horizontal-showcase h2 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .horizontal-showcase p {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            margin-bottom: 22px;
+            line-height: 1.55;
+        }
+
+        /* Standard Action Buttons */
+        .action-btn {
+            display: inline-block;
+            background: #38bdf8;
+            color: #0b1120;
+            padding: 12px 28px;
+            border-radius: 30px;
             font-weight: 700;
             text-decoration: none;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+            transition: transform 0.25s, box-shadow 0.25s, background 0.2s;
+            box-shadow: 0 4px 18px rgba(56, 189, 248, 0.35);
         }
 
-        .btn-blue {
-            background: #2563eb;
-            color: #ffffff;
-            border: 1px solid #3b82f6;
-        }
-        .btn-blue:hover {
-            background: #1d4ed8;
-            box-shadow: 0 0 16px rgba(59, 130, 246, 0.6);
-            transform: translateY(-2px);
+        .action-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 0 6px 24px rgba(56, 189, 248, 0.6);
+            background: #7dd3fc;
         }
 
-        .btn-amber {
+        /* Photography Specific Button: Warm Amber & Dark Contrast */
+        .btn-photo {
+            background: #f59e0b;
+            color: #1e1b4b;
+            border: 1.5px solid #fde68a;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.45);
+        }
+
+        .btn-photo:hover {
             background: #d97706;
             color: #ffffff;
-            border: 1px solid #f59e0b;
-        }
-        .btn-amber:hover {
-            background: #b45309;
-            box-shadow: 0 0 16px rgba(245, 158, 11, 0.6);
-            transform: translateY(-2px);
+            box-shadow: 0 6px 26px rgba(245, 158, 11, 0.7);
         }
 
-        .btn-green {
+        /* Football Specific Button: Green & Pure White */
+        .btn-football {
+            background: #22c55e;
+            color: #ffffff;
+            border: 1.5px solid #ffffff;
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.45);
+        }
+
+        .btn-football:hover {
             background: #16a34a;
-            color: #ffffff;
-            border: 1px solid #22c55e;
-        }
-        .btn-green:hover {
-            background: #15803d;
-            box-shadow: 0 0 16px rgba(34, 197, 94, 0.6);
-            transform: translateY(-2px);
+            color: #f0fdf4;
+            box-shadow: 0 6px 26px rgba(34, 197, 94, 0.7);
         }
 
-        .btn-dark {
-            background: rgba(255, 255, 255, 0.08);
+        /* Tech Specific Button */
+        .btn-tech {
+            background: #a855f7;
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-        }
-        .btn-dark:hover {
-            background: rgba(255, 255, 255, 0.16);
-            border-color: #38bdf8;
-            transform: translateY(-2px);
+            box-shadow: 0 4px 18px rgba(168, 85, 247, 0.35);
         }
 
+        .btn-tech:hover {
+            background: #9333ea;
+            box-shadow: 0 6px 24px rgba(168, 85, 247, 0.6);
+        }
+
+        /* Footer */
         footer {
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             text-align: center;
-            padding: 24px 20px;
+            padding: 30px 20px;
             color: #64748b;
-            font-size: 0.88rem;
-            background: rgba(11, 17, 32, 0.85);
-        }
-
-        @media (max-width: 640px) {
-            .banner-card {
-                height: 310px;
-            }
-            .glass-panel {
-                width: 92%;
-                padding: 18px 20px;
-            }
-            .panel-title {
-                font-size: 1.25rem;
-            }
+            font-size: 0.9rem;
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -271,81 +277,88 @@
 
     <!-- Sticky Navigation Bar -->
     <nav>
-        <a href="index.html" class="logo">Vivek<span>.</span></a>
+        <a href="index.html" class="logo">Vivek Raj</a>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="academics.html">Academics</a>
             <a href="skills.html">Skills</a>
             <a href="projects.html">Projects</a>
             <a href="gallery.html" class="active">Hobbies &amp; Gallery</a>
-            <a href="photography.html">Photography</a>
             <a href="contact.html">Contact</a>
         </div>
     </nav>
 
-    <div class="container">
-        
-        <div class="section-header">
-            <h1>Hobbies &amp; <span>Interests</span></h1>
-            <p>Strategic gaming, creative captures, sportsmanship, and technological exploration.</p>
+    <div class="page-container">
+
+        <div class="page-header">
+            <h1>Hobbies &amp; Creative Pursuits</h1>
+            <p>Strategic gaming, creative captures, sportsmanship, and technological exploration</p>
         </div>
 
-        <div class="banner-list">
-            
-            <!-- Banner 1: Chess -->
-            <div class="banner-card card-chess">
-                <div class="glass-panel">
-                    <span class="panel-badge">Logic &bull; Mind Sports</span>
-                    <h2 class="panel-title">Tactical &amp; Strategic Chess</h2>
-                    <p class="panel-desc">Playing tactical online and board games to develop strategic foresight, deep calculation, and pattern recognition.</p>
-                    <a href="https://www.chess.com/play/chesemaster01" target="_blank" rel="noopener noreferrer" class="panel-btn btn-blue">
-                        Play with @chesemaster01 on Chess.com
-                    </a>
-                </div>
+        <!-- 1. CHESS BANNER -->
+        <section class="horizontal-showcase banner-chess">
+            <div class="glass-inner-card">
+                <span class="badge badge-chess">CHESS.COM PROFILE</span>
+                <h2>Tactical &amp; Strategic Chess</h2>
+                <p>
+                    Playing tactical online and board games to develop strategic foresight, 
+                    deep calculation, and pattern recognition.
+                </p>
+                <a href="https://www.chess.com/member/chesemaster01" target="_blank" class="action-btn">
+                    Play with @chesemaster01 on Chess.com &rarr;
+                </a>
             </div>
+        </section>
 
-            <!-- Banner 2: Creative Photography (Architectural & removed) -->
-            <div class="banner-card card-photo">
-                <div class="glass-panel">
-                    <span class="panel-badge">Lens &bull; Framing &bull; Visual Arts</span>
-                    <h2 class="panel-title">Creative Photography</h2>
-                    <p class="panel-desc">Working through the lens to capture balanced compositions, natural lighting geometry, and moody nighttime perspectives.</p>
-                    <a href="photography.html" class="panel-btn btn-amber">
-                        Visit My Exposures
-                    </a>
-                </div>
+        <!-- 2. PHOTOGRAPHY BANNER: Creative Camera, Lens & Framing Focus -->
+        <section class="horizontal-showcase banner-photo">
+            <div class="glass-inner-card photo-inner-card">
+                <span class="badge badge-photo">📷 LENS &bull; FRAMING &bull; VISUAL ARTS</span>
+                <h2>Architectural &amp; Creative Photography</h2>
+                <p>
+                    Working through the lens to capture balanced compositions, natural lighting geometry, 
+                    and moody nighttime architectural perspectives.
+                </p>
+                <a href="photography.html" class="action-btn btn-photo">
+                    Visit My Captures &rarr;
+                </a>
             </div>
+        </section>
 
-            <!-- Banner 3: Football -->
-            <div class="banner-card card-football">
-                <div class="glass-panel">
-                    <span class="panel-badge">Pitch &bull; Endurance</span>
-                    <h2 class="panel-title">Football &amp; Sportsmanship</h2>
-                    <p class="panel-desc">Active participation in competitive sports focusing on stamina, pitch vision, team coordination, and tactical execution towards the goal.</p>
-                    <a href="contact.html" class="panel-btn btn-green">
-                        Connect for Match
-                    </a>
-                </div>
+        <!-- 3. FOOTBALL BANNER (Green & White Theme with Bold Goalpost) -->
+        <section class="horizontal-showcase banner-football">
+            <div class="glass-inner-card football-inner-card">
+                <span class="badge badge-football">&bull; PITCH &bull; ATHLETICS &bull;</span>
+                <h2 style="color: #ffffff;">Football &amp; Sportsmanship</h2>
+                <p style="color: #dcfce7;">
+                    Active participation in competitive sports focusing on stamina, pitch vision, 
+                    team coordination, and tactical execution towards the goal.
+                </p>
+                <a href="contact.html" class="action-btn btn-football">
+                    Connect for Match &rarr;
+                </a>
             </div>
+        </section>
 
-            <!-- Banner 4: Tech Exploration -->
-            <div class="banner-card card-tech">
-                <div class="glass-panel">
-                    <span class="panel-badge">Innovation &bull; Computing</span>
-                    <h2 class="panel-title">Exploring New Technologies</h2>
-                    <p class="panel-desc">Researching modern processor architectures, emerging developer ecosystems, and building clean foundational computer science solutions.</p>
-                    <a href="projects.html" class="panel-btn btn-dark">
-                        Explore My Lab Projects
-                    </a>
-                </div>
+        <!-- 4. TECH EXPLORATION BANNER -->
+        <section class="horizontal-showcase banner-tech">
+            <div class="glass-inner-card">
+                <span class="badge badge-tech">INNOVATION &bull; COMPUTING</span>
+                <h2>Exploring New Technologies</h2>
+                <p>
+                    Researching modern processor architectures, emerging developer ecosystems, 
+                    and building clean foundational computer science solutions.
+                </p>
+                <a href="projects.html" class="action-btn btn-tech">
+                    Explore My Lab Projects &rarr;
+                </a>
             </div>
-
-        </div>
+        </section>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Vivek Raj &bull; Department of Computer Science &amp; Engineering (CSE), GLA University, Mathura</p>
+        <p>&copy; 2026 Vivek Raj &bull; Department of CSE, GLA University, Mathura</p>
     </footer>
 
 </body>
