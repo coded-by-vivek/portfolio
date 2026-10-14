@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivek Raj | Skills &amp; Experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0b1120;
+            color: #f8fafc;
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(11, 17, 32, 0.82), rgba(11, 17, 32, 0.92)), 
+                              url('https://www.gla.ac.in/images/admin-block.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        /* Top Sticky Navigation */
+        nav {
+            background: rgba(11, 17, 32, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #38bdf8;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 20px 80px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-header h1 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .section-header h1 span {
+            background: linear-gradient(135deg, #38bdf8, #22c55e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-header p {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        /* Terminal Window */
+        .terminal-window {
+            background: #090e17;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 18px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 25px rgba(56, 189, 248, 0.15);
+            font-family: "Courier New", Courier, monospace;
+            margin-bottom: 40px;
+        }
+
+        .terminal-header {
+            background: #111827;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .dot.red { background: #ef4444; }
+        .dot.yellow { background: #f59e0b; }
+        .dot.green { background: #22c55e; }
+
+        .terminal-title {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #64748b;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        .terminal-body {
+            padding: 24px 26px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #38bdf8;
+            min-height: 250px;
+        }
+
+        .cursor {
+            color: #38bdf8;
+            font-weight: bold;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .terminal-output {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.12);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .terminal-cmd {
+            color: #94a3b8;
+            font-weight: bold;
+        }
+
+        .output-text {
+            color: #f1f5f9;
+        }
+
+        .output-success {
+            color: #22c55e;
+            font-size: 0.85rem;
+            margin-top: 6px;
+        }
+
+        /* Skills Badges Grid Below Terminal */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            padding: 22px;
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .skill-card h3 {
+            font-size: 1.15rem;
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            padding: 24px 20px;
+            color: #64748b;
+            font-size: 0.88rem;
+            background: rgba(11, 17, 32, 0.85);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation -->
+    <nav>
+        <a href="index.html" class="logo">Vivek<span>.</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="academics.html">Academics</a>
+            <a href="skills.html" class="active">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="gallery.html">Hobbies &amp; Gallery</a>
+            <a href="photography.html">Photography</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <div class="section-header">
+            <h1>Technical <span>Skillset</span></h1>
+            <p>Interactive compiler terminal and core engineering proficiencies.</p>
+        </div>
+
+        <!-- Interactive Terminal -->
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="terminal-title">vivek@gla-workstation: ~/portfolio/main.c</div>
+            </div>
+
+            <div class="terminal-body">
+                <pre><code id="code-content"></code><span class="cursor">|</span></pre>
+                <div id="terminal-output" class="terminal-output"></div>
+            </div>
+        </div>
+
+        <!-- Skills Cards -->
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>C Programming</h3>
+                <p>Data types, control structures, pointers, memory addressing, arrays, and standard libraries using GCC.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Web Architecture</h3>
+                <p>Semantic HTML5, CSS3 responsive layout design, glassmorphism, and client-side scripting.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Developer Tools</h3>
+                <p>Visual Studio Code, MinGW GCC compiler, Git version control, and GitHub.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Vivek Raj &bull; Department of CSE, GLA University, Mathura</p>
+    </footer>
+
+    <script>
+        const sourceCode = `#include <stdio.h>
+
+int main() {
+    printf("Developer: Vivek Raj\\n");
+    printf("Track: B.Tech CSE Core @ GLA Mathura\\n");
+    printf("Core Skills: C, Web Architecture, Problem Solving\\n");
+    printf("Status: Building Systems & Writing Code\\n");
+    return 0;
+}`;
+
+        let i = 0;
+        const codeElement = document.getElementById("code-content");
+        const outputElement = document.getElementById("terminal-output");
+
+        function typeCode() {
+            if (i < sourceCode.length) {
+                codeElement.textContent += sourceCode.charAt(i);
+                i++;
+                setTimeout(typeCode, 22);
+            } else {
+                setTimeout(() => {
+                    outputElement.innerHTML = `
+<span class="terminal-cmd">$ gcc main.c -o main && ./main</span>
+<span class="output-text">Developer: Vivek Raj</span>
+<span class="output-text">Track: B.Tech CSE Core @ GLA Mathura</span>
+<span class="output-text">Core Skills: C, Web Architecture, Problem Solving</span>
+<span class="output-text">Status: Building Systems & Writing Code</span>
+<span class="output-success">[Process completed with exit code 0]</span>`;
+                }, 500);
+            }
+        }
+
+        window.addEventListener("DOMContentLoaded", typeCode);
+    </script>
+</body>
+</html>
